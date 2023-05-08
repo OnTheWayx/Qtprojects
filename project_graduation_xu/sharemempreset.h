@@ -1,0 +1,9 @@
+#ifndef SHAREMEMPRESET_H
+#define SHAREMEMPRESET_H
+
+// 4096 * 8
+
+#define PRESET_DATETIME 0
+#define PRESET_WEATHER  40
+
+#endif // SHAREMEMPRESET_H

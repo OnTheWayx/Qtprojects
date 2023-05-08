@@ -1,0 +1,103 @@
+QWidget#Widget {
+    border-image: url(:/image/home/homebackground01.png);
+}
+
+QPushButton {
+    outline: none;
+}
+
+QPushButton#HomeMediaButton {
+    border-radius: 8px;
+    background-image: url(:/image/home/homemediaicon01.png);
+    background-repeat: no-repeat;
+
+    text-align: left bottom;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+QPushButton#HomeMediaButton:pressed {
+    border: 2px solid #5666df
+}
+
+QPushButton#HomeWeatherButton {
+    border-radius: 8px;
+    background-image: url(:/image/home/homeweathericon01.png);
+    background-repeat: no-repeat;
+
+    text-align: left bottom;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+QPushButton#HomeWeatherButton:pressed {
+    border: 2px solid #5666df
+}
+
+QPushButton#HomeSettingButton {
+    border-radius: 8px;
+    background-image: url(:/image/home/homesettingicon01.png);
+    background-repeat: no-repeat;
+
+    text-align: left bottom;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+QPushButton#HomeSettingButton:pressed {
+        border: 2px solid #5666df
+}
+
+QPushButton#HomeAlarmButton {
+    border-radius: 8px;
+    background-image: url(:/image/home/homealarmicon01.png);
+    background-repeat: no-repeat;
+
+    text-align: left bottom;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+QPushButton#HomeAlarmButton:pressed {
+        border: 2px solid #5666df
+}
+
+QPushButton#HomeRadioButton {
+    border-radius: 8px;
+    background-image: url(:/image/home/homeradioicon01.png);
+    background-repeat: no-repeat;
+
+    text-align: left bottom;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    font-size: 15px;
+    color: #FFFFFF;
+}
+
+QPushButton#HomeRadioButton:pressed {
+    border: 2px solid #5666df
+}
+
+QPushButton#HomeImagesButton {
+    border-radius: 8px;
+    border: none;
+}
+
+QPushButton#HomeImagesButton:pressed {
+    border: 4px solid #5666df;
+}
+
+QLabel {
+    color: #FFFFFF;
+    background-color: #343645;
+    border-radius: 8px;
+}
+

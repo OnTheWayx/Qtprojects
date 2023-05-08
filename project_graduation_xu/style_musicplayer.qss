@@ -1,0 +1,121 @@
+QWidget#XUMusicPlayer {
+    border-image: url(:/image/home/homebackground01.png);
+}
+
+QLabel {
+    color:#FFFFFF;
+}
+
+QPushButton {
+    outline: none;
+}
+
+QListWidget {
+    outline: none;
+}
+
+QListWidget#MusicplayerlistWidget {
+    border-image:url(:/image/musicplayer/mask.png);
+    border-radius: 8px;
+    color:white;
+    font-size: 15px;
+    border:none;
+}
+
+QListWidget#MusicplayerlistWidget:item:active {
+    background: transparent;
+}
+
+QListWidget#MusicplayerlistWidget:item {
+    background: transparent;
+    height:60;
+}
+
+QListWidget#MusicplayerlistWidget:item:selected {
+    color:#5edcf3;
+    background: transparent;
+}
+
+QListWidget#MusicplayerlistWidget:item:hover {
+    background: transparent;
+    color:#5edcf3;
+    border:none;
+}
+
+QPushButton#MusicplayerplayButton {
+    border-image:url(:/image/musicplayer/btn_play1.png);
+}
+
+QPushButton#MusicplayerplayButton:hover {
+    border-image:url(:/image/musicplayer/btn_play2.png);
+}
+
+QPushButton#MusicplayerplayButton:checked {
+    border-image:url(:/image/musicplayer/btn_pause1.png);
+}
+
+QPushButton#MusicplayerplayButton:checked:hover {
+    border-image:url(:/image/musicplayer/btn_pause2.png);
+}
+
+QPushButton#MusicplayerpreviousButton {
+    border-image:url(:/image/musicplayer/btn_previous1.png);
+}
+
+QPushButton#MusicplayerpreviousButton:hover {
+    border-image:url(:/image/musicplayer/btn_previous2.png);
+}
+
+QPushButton#MusicplayernextButton {
+    border-image:url(:/image/musicplayer/btn_next1.png);
+}
+
+QPushButton#MusicplayernextButton:hover {
+    border-image:url(:/image/musicplayer/btn_next2.png);
+}
+
+QPushButton#MusicplayerPlaymodeButton {
+    border-image:url(:/image/musicplayer/btn_listcircle1.png);
+}
+
+QPushButton#MusicplayerPlaymodeButton:hover {
+    border-image:url(:/image/musicplayer/btn_listcircle2.png);
+}
+
+QPushButton#MusicplayerPlaymodeButton {
+    border-image:url(:/image/musicplayer/btn_listcircle1.png);
+}
+
+QPushButton#MusicplayerPlaymodeButton:hover {
+    border-image:url(:/image/musicplayer/btn_listcircle2.png);
+}
+
+QPushButton#MusicplayerSetvolumeButton {
+    border-image:url(:/image/musicplayer/btn_volume1.png);
+}
+
+QPushButton#MusicplayerSetvolumeButton:hover {
+    border-image:url(:/image/musicplayer/btn_volume2.png);
+}
+
+QPushButton#MusicplayerScanButton {
+    border-image:url(:/image/musicplayer/btn_scan1.png);
+}
+
+QPushButton#MusicplayerScanButton:hover {
+    border-image:url(:/image/musicplayer/btn_scan2.png);
+}
+
+QSlider#MusicplayerSlider:handle:horizontal {
+    border-image:url(:/image/musicplayer/handle.png);
+}
+
+QSlider#MusicplayerSlider:sub-page:horizontal {
+    border-image:url(:/image/musicplayer/sub-page.png);
+}
+
+QPushButton#MusicplayerreturnButton {
+    border-radius: 8px;
+    background-image: url(:/image/home/backtopreviousicon01.png);
+    background-repeat: no-repeat;
+}
