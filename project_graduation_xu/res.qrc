@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>style.qss</file>
+        <file>image/home/homemediaicon01.png</file>
+        <file>image/display/1.jpg</file>
+        <file>image/home/homebackground01.png</file>
+        <file>image/home/homealarmicon01.png</file>
+        <file>image/home/homesettingicon01.png</file>
+        <file>image/home/homeweathericon01.png</file>
+        <file>image/home/homeradioicon01.png</file>
+        <file>image/multimedia/multimediamusicicon01.png</file>
+        <file>image/multimedia/multimediavideoicon01.png</file>
+        <file>image/musicplayer/btn_favorite_no.png</file>
+        <file>image/musicplayer/btn_favorite_yes.png</file>
+        <file>image/musicplayer/btn_listcircle1.png</file>
+        <file>image/musicplayer/btn_listcircle2.png</file>
+        <file>image/musicplayer/btn_menu1.png</file>
+        <file>image/musicplayer/btn_menu2.png</file>
+        <file>image/musicplayer/btn_next1.png</file>
+        <file>image/musicplayer/btn_next2.png</file>
+        <file>image/musicplayer/btn_pause1.png</file>
+        <file>image/musicplayer/btn_pause2.png</file>
+        <file>image/musicplayer/btn_play1.png</file>
+        <file>image/musicplayer/btn_play2.png</file>
+        <file>image/musicplayer/btn_previous1.png</file>
+        <file>image/musicplayer/btn_previous2.png</file>
+        <file>image/musicplayer/btn_volume1.png</file>
+        <file>image/musicplayer/btn_volume2.png</file>
+        <file>image/musicplayer/cd.png</file>
+        <file>image/musicplayer/handle.png</file>
+        <file>image/musicplayer/mask.png</file>
+        <file>image/musicplayer/sub-page.png</file>
+        <file>style_multimedia.qss</file>
+        <file>style_musicplayer.qss</file>
+        <file>image/musicplayer/btn_scan1.png</file>
+        <file>image/musicplayer/btn_scan2.png</file>
+        <file>image/home/backtopreviousicon01.png</file>
+    </qresource>
+</RCC>
