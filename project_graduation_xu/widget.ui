@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="HomeAlarmButton">
    <property name="geometry">
     <rect>
-     <x>205</x>
-     <y>448</y>
-     <width>350</width>
-     <height>128</height>
+     <x>600</x>
+     <y>258</y>
+     <width>400</width>
+     <height>160</height>
     </rect>
    </property>
    <property name="font">
@@ -104,26 +104,6 @@
    </property>
    <property name="text">
     <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="HomeRadioButton">
-   <property name="geometry">
-    <rect>
-     <x>600</x>
-     <y>258</y>
-     <width>400</width>
-     <height>160</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>15</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>收音</string>
    </property>
   </widget>
   <widget class="QLabel" name="HomeWthInfoLabel">
@@ -277,7 +257,7 @@
      <x>205</x>
      <y>258</y>
      <width>350</width>
-     <height>160</height>
+     <height>318</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -294,8 +274,8 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>280</width>
-     <height>160</height>
+     <width>600</width>
+     <height>800</height>
     </size>
    </property>
    <property name="font">
@@ -319,7 +299,6 @@
   <zorder>HomeAlarmButton</zorder>
   <zorder>HomeTimeDisplayLabel</zorder>
   <zorder>HomeImagesButton</zorder>
-  <zorder>HomeRadioButton</zorder>
   <zorder>HomeDateDisplayLabel</zorder>
   <zorder>HomeSettingButton</zorder>
   <zorder>HomeTemInfoLabel</zorder>

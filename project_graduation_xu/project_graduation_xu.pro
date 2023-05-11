@@ -1,4 +1,4 @@
-QT       += core gui network multimedia
+QT       += core gui network multimedia multimediawidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -21,8 +21,11 @@ SOURCES += \
     widget.cpp \
     xumultimedia.cpp \
     xumusicplayer.cpp \
+    xusetting.cpp \
+    xusettinginfo.cpp \
     xuupdateinfo.cpp \
-    xusharemem.cpp
+    xusharemem.cpp \
+    xuvideoplayer.cpp
 
 HEADERS += \
     basewidget.h \
@@ -33,14 +36,19 @@ HEADERS += \
     widget.h \
     xumultimedia.h \
     xumusicplayer.h \
+    xusetting.h \
+    xusettinginfo.h \
     xusharemem.h \
-    xuupdateinfo.h
+    xuupdateinfo.h \
+    xuvideoplayer.h
 
 FORMS += \
     basewidget.ui \
     widget.ui \
     xumultimedia.ui \
-    xumusicplayer.ui
+    xumusicplayer.ui \
+    xusetting.ui \
+    xuvideoplayer.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

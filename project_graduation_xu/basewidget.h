@@ -2,9 +2,12 @@
 #define BASEWIDGET_H
 
 #include <QWidget>
+
 #include "widget.h"
 #include "xumultimedia.h"
 #include "xumusicplayer.h"
+#include "xuvideoplayer.h"
+#include "xusetting.h"
 
 namespace Ui {
 class BaseWidget;
@@ -23,9 +26,17 @@ private slots:
 
     void ChangeToMusicplayerSlot();
 
+    void ChangeToVideoplayerSlot();
+
+    void ChangeToSettingSlot();
+
     void MultimediaBackToPreviousSlot();
 
     void MusicplayerBacktoPreviousSlot();
+
+    void VideoplayerBacktoPreviousSlot();
+
+    void SettingBackToPreviousSlot();
 
 private:
     Ui::BaseWidget *ui;
@@ -38,6 +49,13 @@ private:
 
     // 音乐播放器页面
     XUMusicPlayer *m_musicplayer;
+
+    // 视频播放器页面
+    XUVideoPlayer *m_videoplayer;
+
+    // 设置页面
+    XUSetting *m_setting;
+
 };
 
 #endif // BASEWIDGET_H

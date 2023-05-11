@@ -53,6 +53,7 @@ void XUMultimedia::on_MultimediamusicButton_clicked()
 
 void XUMultimedia::on_MultimediavideoButton_clicked()
 {
+    emit ChangeToVideoplayer();
 }
 
 void XUMultimedia::on_MultimediareturnButton_clicked()

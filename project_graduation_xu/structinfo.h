@@ -43,10 +43,10 @@ typedef struct WeatherInfo
 
 // 多媒体模块
 // 歌曲模块保存歌曲信息结构体
-typedef struct MediamusicInfo
+typedef struct MediaobjectInfo
 {
     QString filename;
     QString filepath;
-}MediamusicInfo;
+}MediaobjectInfo;
 
 #endif // STRUCTINFO_H
