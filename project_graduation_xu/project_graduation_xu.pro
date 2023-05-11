@@ -19,10 +19,10 @@ SOURCES += \
     basewidget.cpp \
     main.cpp \
     widget.cpp \
+    xuconfiginfo.cpp \
     xumultimedia.cpp \
     xumusicplayer.cpp \
     xusetting.cpp \
-    xusettinginfo.cpp \
     xuupdateinfo.cpp \
     xusharemem.cpp \
     xuvideoplayer.cpp
@@ -34,10 +34,10 @@ HEADERS += \
     sharemempreset.h \
     structinfo.h \
     widget.h \
+    xuconfiginfo.h \
     xumultimedia.h \
     xumusicplayer.h \
     xusetting.h \
-    xusettinginfo.h \
     xusharemem.h \
     xuupdateinfo.h \
     xuvideoplayer.h

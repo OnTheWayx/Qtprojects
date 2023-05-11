@@ -14,7 +14,7 @@
 XUUpdateinfo::XUUpdateinfo() : m_getweathercount(0)
 {
     m_sharememptr = XUSharemem::getService(&m_sharememnode);
-    m_settinginfoptr = XUSettingInfo::getService();
+    m_settinginfoptr = XUConfigInfo::getService();
 
     m_timer = new QTimer();
     m_weathertimer = new QTimer();
@@ -63,7 +63,7 @@ XUUpdateinfo::~XUUpdateinfo()
 void XUUpdateinfo::start(unsigned long msec)
 {
     // 读取时间的设置内容
-    QVariant isupdatetimebynet_variant = m_settinginfoptr->getSettingInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET);
+    QVariant isupdatetimebynet_variant = m_settinginfoptr->getConfigInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET);
     m_isUpdatetimebynet = isupdatetimebynet_variant.toBool();
 
     ontimerEvent();
