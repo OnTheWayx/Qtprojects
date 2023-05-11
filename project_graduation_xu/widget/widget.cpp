@@ -139,3 +139,8 @@ void Widget::on_HomeSettingButton_clicked()
 {
     emit ChangeToSetting();
 }
+
+void Widget::on_HomeAlarmButton_clicked()
+{
+    emit ChangeToAlarmclock();
+}

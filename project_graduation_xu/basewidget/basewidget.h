@@ -8,6 +8,7 @@
 #include "xumusicplayer/xumusicplayer.h"
 #include "xuvideoplayer/xuvideoplayer.h"
 #include "xusetting/xusetting.h"
+#include "xualarmclock/xualarmclock.h"
 
 namespace Ui {
 class BaseWidget;
@@ -30,6 +31,8 @@ private slots:
 
     void ChangeToSettingSlot();
 
+    void ChangeToAlarmclockSlot();
+
     void MultimediaBackToPreviousSlot();
 
     void MusicplayerBacktoPreviousSlot();
@@ -37,6 +40,8 @@ private slots:
     void VideoplayerBacktoPreviousSlot();
 
     void SettingBackToPreviousSlot();
+
+    void AlarmclockBackToPreviousSlot();
 
 private:
     Ui::BaseWidget *ui;
@@ -56,6 +61,8 @@ private:
     // 设置页面
     XUSetting *m_setting;
 
+    // 闹钟页面
+    XUAlarmClock *m_alarmclock;
 };
 
 #endif // BASEWIDGET_H

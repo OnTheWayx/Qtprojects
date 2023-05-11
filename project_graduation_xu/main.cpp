@@ -4,6 +4,7 @@
 #include <QCoreApplication>
 #include <QFile>
 #include <QMessageBox>
+#include <QDebug>
 #include <sys/types.h>
 #include <unistd.h>
 
@@ -20,6 +21,7 @@ int main(int argc, char *argv[])
         QApplication a(argc, argv);
         BaseWidget w;
         w.show();
+        qDebug() << pid << endl;
         return a.exec();
     }
     else if (pid == 0)

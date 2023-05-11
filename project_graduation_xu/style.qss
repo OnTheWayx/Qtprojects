@@ -19,7 +19,7 @@ QPushButton#HomeMediaButton {
 }
 
 QPushButton#HomeMediaButton:pressed {
-    border: 2px solid #5666df
+    border: 4px solid #5666df
 }
 
 QPushButton#HomeWeatherButton {
@@ -35,7 +35,7 @@ QPushButton#HomeWeatherButton {
 }
 
 QPushButton#HomeWeatherButton:pressed {
-    border: 2px solid #5666df
+    border: 4px solid #5666df
 }
 
 QPushButton#HomeSettingButton {
@@ -51,7 +51,7 @@ QPushButton#HomeSettingButton {
 }
 
 QPushButton#HomeSettingButton:pressed {
-        border: 2px solid #5666df
+        border: 4px solid #5666df
 }
 
 QPushButton#HomeAlarmButton {
@@ -67,7 +67,7 @@ QPushButton#HomeAlarmButton {
 }
 
 QPushButton#HomeAlarmButton:pressed {
-        border: 2px solid #5666df
+        border: 4px solid #5666df
 }
 
 QPushButton#HomeImagesButton {

@@ -1,0 +1,125 @@
+QWidget#XUAlarmClock {
+    border-image: url(:/image/home/homebackground01.png);
+}
+
+QPushButton {
+    outline: none;
+}
+
+QListWidget {
+    outline: none;
+}
+
+QListWidget#AlarmclockalarmlistWidget {
+    border-image:url(:/image/alarmclock/mask.png);
+    border-radius: 8px;
+    color:white;
+    font-size: 30px;
+    font-weight: bold;
+    border:none;
+}
+
+QListWidget#AlarmclockalarmlistWidget:item:active {
+    background: transparent;
+}
+
+QListWidget#AlarmclockalarmlistWidget:item {
+    background: transparent;
+    height:60;
+}
+
+QListWidget#AlarmclockalarmlistWidget:item:selected {
+    color:#5edcf3;
+    background: transparent;
+}
+
+QListWidget#AlarmclockalarmlistWidget:item:hover {
+    background: transparent;
+    color:#5edcf3;
+    border:none;
+}
+
+QPushButton#AlarmclockreturnButton {
+    border-image: url(:/image/home/backtopreviousicon01.png);
+}
+
+QPushButton#AlarmclockNewButton {
+    border-image: url(:/image/alarmclock/alarmnewclockicon01.png);
+    background-color: #343645;
+    border-radius: 8px;
+}
+
+QPushButton#AlarmclockNewButton:pressed {
+    border: 2px solid #5666df;
+}
+
+QPushButton#AlarmclockDeleteButton {
+    border-image: url(:/image/alarmclock/alarmdeleteclockicon01.png);
+    background-color: #343645;
+    border-radius: 8px;
+}
+
+QPushButton#AlarmclockDeleteButton:pressed {
+    border: 2px solid #5666df;
+}
+
+QTimeEdit#AlarmclocktimeEdit {
+    color: #FFFFFF;
+    background-color: #343645;
+    border-radius: 8px;
+    font-size: 22px;
+}
+
+QTimeEdit#AlarmclocktimeEdit::up-button {
+    width: 100px;
+    height: 35px;
+}
+
+QTimeEdit#AlarmclocktimeEdit::down-button {
+    width: 100px;
+    height: 35px;
+}
+
+QPushButton#AlarmclockCancelButton {
+    font-size: 14px;
+    background-color: #343645;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+QPushButton#AlarmclockCancelButton:pressed {
+    border: 4px solid #5666df;
+}
+
+QPushButton#AlarmclockConfirmButton {
+    font-size: 14px;
+    background-color: #343645;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+QPushButton#AlarmclockConfirmButton:pressed {
+    border: 4px solid #5666df;
+}
+
+QPushButton#AlarmclockEdithourButton {
+    font-size: 14px;
+    background-color: #343645;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+QPushButton#AlarmclockEdithourButton:pressed {
+    border: 4px solid #5666df;
+}
+
+QPushButton#AlarmclockEditminuteButton {
+    font-size: 14px;
+    background-color: #343645;
+    color: #FFFFFF;
+    border-radius: 8px;
+}
+
+QPushButton#AlarmclockEditminuteButton:pressed {
+    border: 4px solid #5666df;
+}

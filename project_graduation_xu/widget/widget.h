@@ -51,11 +51,15 @@ private slots:
 
     void on_HomeSettingButton_clicked();
 
+    void on_HomeAlarmButton_clicked();
+
 signals:
     // 点击事件转发信号
     void ChangeToHomemedia();
 
     void ChangeToSetting();
+
+    void ChangeToAlarmclock();
 
 private:
     Ui::Widget *ui;

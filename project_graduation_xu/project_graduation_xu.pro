@@ -19,6 +19,7 @@ SOURCES += \
     basewidget/basewidget.cpp \
     main.cpp \
     widget/widget.cpp \
+    xualarmclock/xualarmclock.cpp \
     xuconfiginfo/xuconfiginfo.cpp \
     xumultimedia/xumultimedia.cpp \
     xumusicplayer/xumusicplayer.cpp \
@@ -34,6 +35,7 @@ HEADERS += \
     public/sharemempreset.h \
     public/structinfo.h \
     widget/widget.h \
+    xualarmclock/xualarmclock.h \
     xuconfiginfo/xuconfiginfo.h \
     xumultimedia/xumultimedia.h \
     xumusicplayer/xumusicplayer.h \
@@ -45,6 +47,7 @@ HEADERS += \
 FORMS += \
     basewidget/basewidget.ui \
     widget/widget.ui \
+    xualarmclock/xualarmclock.ui \
     xumultimedia/xumultimedia.ui \
     xumusicplayer/xumusicplayer.ui \
     xusetting/xusetting.ui \
