@@ -7,7 +7,7 @@
 #include <QMessageBox>
 #include <QVariant>
 
-#include "datatype.h"
+#include "public/datatype.h"
 
 XUSetting::XUSetting(QWidget *parent) :
     QWidget(parent),

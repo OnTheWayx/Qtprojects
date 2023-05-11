@@ -2,8 +2,8 @@
 #include <sys/shm.h>
 #include <sys/types.h>
 #include <sys/ipc.h>
-#include "sharemempreset.h"
 
+#include "public/sharemempreset.h"
 #include <QDebug>
 
 XUSharemem *XUSharemem::m_sharemem = nullptr;

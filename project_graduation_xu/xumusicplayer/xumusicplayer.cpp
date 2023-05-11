@@ -10,7 +10,7 @@
 #include <QMessageBox>
 #include <QDebug>
 
-#include "datatype.h"
+#include "public/datatype.h"
 
 XUMusicPlayer::XUMusicPlayer(QWidget *parent) :
     QWidget(parent),

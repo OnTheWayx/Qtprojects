@@ -6,7 +6,7 @@
 #include <QMessageBox>
 #include <QPainter>
 #include <QStyleOption>
-#include "xumusicplayer.h"
+#include "xumusicplayer/xumusicplayer.h"
 
 namespace Ui {
 class XUMultimedia;

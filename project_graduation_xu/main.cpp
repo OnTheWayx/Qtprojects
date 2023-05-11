@@ -1,4 +1,4 @@
-#include "basewidget.h"
+#include "basewidget/basewidget.h"
 
 #include <QApplication>
 #include <QCoreApplication>
@@ -7,7 +7,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#include "xuupdateinfo.h"
+#include "xuupdateinfo/xuupdateinfo.h"
 
 int main(int argc, char *argv[])
 {

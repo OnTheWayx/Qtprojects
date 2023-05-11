@@ -7,7 +7,7 @@
 #include <QVector>
 #include <QListWidgetItem>
 
-#include "structinfo.h"
+#include "public/structinfo.h"
 
 namespace Ui {
 class XUMusicPlayer;

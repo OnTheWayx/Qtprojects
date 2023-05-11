@@ -3,11 +3,11 @@
 
 #include <QWidget>
 
-#include "widget.h"
-#include "xumultimedia.h"
-#include "xumusicplayer.h"
-#include "xuvideoplayer.h"
-#include "xusetting.h"
+#include "widget/widget.h"
+#include "xumultimedia/xumultimedia.h"
+#include "xumusicplayer/xumusicplayer.h"
+#include "xuvideoplayer/xuvideoplayer.h"
+#include "xusetting/xusetting.h"
 
 namespace Ui {
 class BaseWidget;

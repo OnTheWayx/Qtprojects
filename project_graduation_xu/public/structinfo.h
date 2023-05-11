@@ -1,7 +1,7 @@
 #ifndef STRUCTINFO_H
 #define STRUCTINFO_H
 
-#include "datatype.h"
+#include "public/datatype.h"
 #include <QString>
 
 typedef struct sharememnode

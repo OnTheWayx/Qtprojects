@@ -5,11 +5,11 @@
 #include <QTimer>
 #include <QFile>
 
-#include "datatype.h"
-#include "errornum.h"
-#include "xusharemem.h"
-#include "structinfo.h"
-#include "xuconfiginfo.h"
+#include "public/datatype.h"
+#include "public/errornum.h"
+#include "public/structinfo.h"
+#include "xusharemem/xusharemem.h"
+#include "xuconfiginfo/xuconfiginfo.h"
 
 
 class XUUpdateinfo : public QObject
