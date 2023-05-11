@@ -16,39 +16,39 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    basewidget.cpp \
+    basewidget/basewidget.cpp \
     main.cpp \
-    widget.cpp \
-    xuconfiginfo.cpp \
-    xumultimedia.cpp \
-    xumusicplayer.cpp \
-    xusetting.cpp \
-    xuupdateinfo.cpp \
-    xusharemem.cpp \
-    xuvideoplayer.cpp
+    widget/widget.cpp \
+    xuconfiginfo/xuconfiginfo.cpp \
+    xumultimedia/xumultimedia.cpp \
+    xumusicplayer/xumusicplayer.cpp \
+    xusetting/xusetting.cpp \
+    xuupdateinfo/xuupdateinfo.cpp \
+    xusharemem/xusharemem.cpp \
+    xuvideoplayer/xuvideoplayer.cpp
 
 HEADERS += \
-    basewidget.h \
-    datatype.h \
-    errornum.h \
-    sharemempreset.h \
-    structinfo.h \
-    widget.h \
-    xuconfiginfo.h \
-    xumultimedia.h \
-    xumusicplayer.h \
-    xusetting.h \
-    xusharemem.h \
-    xuupdateinfo.h \
-    xuvideoplayer.h
+    basewidget/basewidget.h \
+    public/datatype.h \
+    public/errornum.h \
+    public/sharemempreset.h \
+    public/structinfo.h \
+    widget/widget.h \
+    xuconfiginfo/xuconfiginfo.h \
+    xumultimedia/xumultimedia.h \
+    xumusicplayer/xumusicplayer.h \
+    xusetting/xusetting.h \
+    xusharemem/xusharemem.h \
+    xuupdateinfo/xuupdateinfo.h \
+    xuvideoplayer/xuvideoplayer.h
 
 FORMS += \
-    basewidget.ui \
-    widget.ui \
-    xumultimedia.ui \
-    xumusicplayer.ui \
-    xusetting.ui \
-    xuvideoplayer.ui
+    basewidget/basewidget.ui \
+    widget/widget.ui \
+    xumultimedia/xumultimedia.ui \
+    xumusicplayer/xumusicplayer.ui \
+    xusetting/xusetting.ui \
+    xuvideoplayer/xuvideoplayer.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

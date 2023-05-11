@@ -10,8 +10,8 @@
 #include <QListWidget>
 #include <QHBoxLayout>
 
-#include "datatype.h"
-#include "structinfo.h"
+#include "public/datatype.h"
+#include "public/structinfo.h"
 
 namespace Ui {
 class XUVideoPlayer;

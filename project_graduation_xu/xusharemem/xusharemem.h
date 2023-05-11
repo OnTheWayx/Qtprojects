@@ -1,8 +1,8 @@
 #ifndef XUSHAREMEM_H
 #define XUSHAREMEM_H
 
-#include "structinfo.h"
-#include "errornum.h"
+#include "public/structinfo.h"
+#include "public/errornum.h"
 
 #include <mutex>
 

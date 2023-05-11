@@ -4,7 +4,7 @@
 #include <QFile>
 #include <QDebug>
 
-#include "datatype.h"
+#include "public/datatype.h"
 
 XUConfigInfo *XUConfigInfo::m_configinfoptr = nullptr;
 std::mutex XUConfigInfo::m_mutex;

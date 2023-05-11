@@ -12,12 +12,12 @@
 #include <QString>
 #include <QStackedWidget>
 
-#include "xusharemem.h"
-#include "errornum.h"
-#include "structinfo.h"
+#include "xusharemem/xusharemem.h"
+#include "public/errornum.h"
+#include "public/structinfo.h"
 
 // ui
-#include "xumultimedia.h"
+#include "xumultimedia/xumultimedia.h"
 
 namespace Ui {
 class Widget;
@@ -66,7 +66,7 @@ private:
     XUSharemem *m_sharememptr;
 
     // 定时器，每一分钟刷新一次主页信息
-    QTimer *timer;
+    QTimer *m_timer;
     // 获取天气的周期
     int m_getweathercount;
 };

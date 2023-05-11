@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#include "xuconfiginfo.h"
+#include "xuconfiginfo/xuconfiginfo.h"
 
 namespace Ui {
 class XUSetting;

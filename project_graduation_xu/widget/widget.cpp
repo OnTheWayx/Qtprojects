@@ -16,7 +16,7 @@ Widget::Widget(QWidget *parent) :
 
     // 这里置1是因为先让更新信息进程去1获取天气
     m_getweathercount = 1;
-    timer = new QTimer(this);
+    m_timer = new QTimer(this);
 
     // 初始化界面布局
     MainLayoutInit();
@@ -24,13 +24,20 @@ Widget::Widget(QWidget *parent) :
     MainTimerEvent();
 
     // 连接信号与槽
-    connect(timer, SIGNAL(timeout()), this, SLOT(MainTimerEvent()));
+    connect(m_timer, SIGNAL(timeout()), this, SLOT(MainTimerEvent()));
 
-    timer->start(1000 * 60);
+    m_timer->start(1000 * 60);
 }
 
 Widget::~Widget()
 {
+    if (m_timer != nullptr)
+    {
+        m_timer->stop();
+        delete m_timer;
+        m_timer = nullptr;
+    }
+
     delete ui;
 }
 
