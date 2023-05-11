@@ -14,7 +14,7 @@ XUSetting::XUSetting(QWidget *parent) :
     ui(new Ui::XUSetting)
 {
     ui->setupUi(this);
-    m_settinginfoptr = XUSettingInfo::getService();
+    m_settinginfoptr = XUConfigInfo::getService();
 
     SettingPageload();
     SettingElementvalueLoad();
@@ -65,7 +65,7 @@ void XUSetting::on_SettingreturnButton_clicked()
 void XUSetting::SettingElementvalueLoad()
 {
     // 开始加载设置项
-    QVariant isUpdatetimebynet = m_settinginfoptr->getSettingInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET);
+    QVariant isUpdatetimebynet = m_settinginfoptr->getConfigInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET);
     if (isUpdatetimebynet.toBool())
     {
         ui->SettingTimebynetButton->setChecked(true);
@@ -80,10 +80,10 @@ void XUSetting::on_SettingTimebynetButton_clicked()
 {
     if (ui->SettingTimebynetButton->isChecked())
     {
-        m_settinginfoptr->setSettingInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET, "true");
+        m_settinginfoptr->setConfigInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET, "true");
     }
     else
     {
-        m_settinginfoptr->setSettingInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET, "false");
+        m_settinginfoptr->setConfigInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET, "false");
     }
 }

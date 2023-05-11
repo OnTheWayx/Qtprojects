@@ -3,7 +3,7 @@
 
 #include <QWidget>
 
-#include "xusettinginfo.h"
+#include "xuconfiginfo.h"
 
 namespace Ui {
 class XUSetting;
@@ -35,7 +35,7 @@ private:
 private:
     Ui::XUSetting *ui;
 
-    XUSettingInfo *m_settinginfoptr;
+    XUConfigInfo *m_settinginfoptr;
 };
 
 #endif // XUSETTING_H

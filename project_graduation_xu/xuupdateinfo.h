@@ -9,7 +9,7 @@
 #include "errornum.h"
 #include "xusharemem.h"
 #include "structinfo.h"
-#include "xusettinginfo.h"
+#include "xuconfiginfo.h"
 
 
 class XUUpdateinfo : public QObject
@@ -55,7 +55,7 @@ private slots:
 
 private:
     // 获取设置信息
-    XUSettingInfo *m_settinginfoptr;
+    XUConfigInfo *m_settinginfoptr;
 
     // 时间模块
     // 标志是否从网络更新时间
