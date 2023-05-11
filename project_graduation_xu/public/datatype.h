@@ -29,6 +29,7 @@ using errortype = int;
 
 // 设置模块
 #define SETTING_CONFIG_FILENAME "/opt/setting.conf"
+//#define SETTING_CONFIG_FILENAME "/home/xu/setting.conf"
 
 // general模块
 #define SETTING_GENERAL "setting_general"
@@ -37,5 +38,12 @@ using errortype = int;
 #define SETTING_TIME_ISUPDATEBYNET "setting_time_isupdatebynet"
 // 时间偏移至北京时间
 #define SETTING_TIME_UPDATE_PRESET 8 * 60 * 60
+
+
+// alarm模块
+#define ALARM_CLOCK "alarm_clock"
+
+// 闹钟
+#define ALARM_CLOCK_TIME "alarm_clock_time"
 
 #endif // DATATYPE_H

@@ -14,6 +14,7 @@ BaseWidget::BaseWidget(QWidget *parent) :
     m_musicplayer = nullptr;
     m_videoplayer = nullptr;
     m_setting = nullptr;
+    m_alarmclock = nullptr;
 
     m_widget = new Widget(this);
     ui->BasestackedWidget->addWidget(m_widget);
@@ -22,6 +23,7 @@ BaseWidget::BaseWidget(QWidget *parent) :
     // 连接信号与槽
     connect(m_widget, SIGNAL(ChangeToHomemedia()), this, SLOT(ChangeToHomemediaSlot()));
     connect(m_widget, SIGNAL(ChangeToSetting()), this, SLOT(ChangeToSettingSlot()));
+    connect(m_widget, SIGNAL(ChangeToAlarmclock()), this, SLOT(ChangeToAlarmclockSlot()));
 }
 
 BaseWidget::~BaseWidget()
@@ -55,6 +57,12 @@ BaseWidget::~BaseWidget()
         ui->BasestackedWidget->removeWidget(m_setting);
         delete m_setting;
         m_setting = nullptr;
+    }
+    if (m_alarmclock != nullptr)
+    {
+        ui->BasestackedWidget->removeWidget(m_alarmclock);
+        delete m_alarmclock;
+        m_alarmclock = nullptr;
     }
     delete ui;
 }
@@ -105,6 +113,17 @@ void BaseWidget::ChangeToSettingSlot()
     ui->BasestackedWidget->setCurrentWidget(m_setting);
 }
 
+void BaseWidget::ChangeToAlarmclockSlot()
+{
+    if (m_alarmclock == nullptr)
+    {
+        m_alarmclock = new XUAlarmClock(this);
+        ui->BasestackedWidget->addWidget(m_alarmclock);
+        connect(m_alarmclock, SIGNAL(AlarmclockBackToPrevious()), this, SLOT(AlarmclockBackToPreviousSlot()));
+    }
+    ui->BasestackedWidget->setCurrentWidget(m_alarmclock);
+}
+
 void BaseWidget::MultimediaBackToPreviousSlot()
 {
     ui->BasestackedWidget->setCurrentWidget(m_widget);
@@ -121,6 +140,11 @@ void BaseWidget::VideoplayerBacktoPreviousSlot()
 }
 
 void BaseWidget::SettingBackToPreviousSlot()
+{
+    ui->BasestackedWidget->setCurrentWidget(m_widget);
+}
+
+void BaseWidget::AlarmclockBackToPreviousSlot()
 {
     ui->BasestackedWidget->setCurrentWidget(m_widget);
 }

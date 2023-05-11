@@ -6,7 +6,6 @@
         <file>image/home/homebackground01.png</file>
         <file>image/home/homesettingicon01.png</file>
         <file>image/multimedia/multimediamusicicon01.png</file>
-        <file>image/multimedia/multimediavideoicon01.png</file>
         <file>image/musicplayer/btn_favorite_no.png</file>
         <file>image/musicplayer/btn_favorite_yes.png</file>
         <file>image/musicplayer/btn_listcircle1.png</file>
@@ -56,5 +55,10 @@
         <file>style_setting.qss</file>
         <file>image/setting/settinggeneraltimeicon01.png</file>
         <file>image/setting/settinggeneraltimeicon02.png</file>
+        <file>style_alarmclock.qss</file>
+        <file>image/alarmclock/mask.png</file>
+        <file>image/alarmclock/alarmnewclockicon01.png</file>
+        <file>image/multimedia/multimediavideoicon01.png</file>
+        <file>image/alarmclock/alarmdeleteclockicon01.png</file>
     </qresource>
 </RCC>

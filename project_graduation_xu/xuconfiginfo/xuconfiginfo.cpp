@@ -48,7 +48,7 @@ void XUConfigInfo::ConfigInfoLoad()
     else
     {
         qDebug() << file.errorString() << endl;
-        qDebug() << "Error number : " << file.error() << endl;
+        qDebug() << "ConfigInfoLoad Error number : " << file.error() << endl;
     }
 }
 
@@ -61,12 +61,37 @@ QString XUConfigInfo::getConfigInfo(QString module, QString option)
     return retval;
 }
 
+QJsonArray XUConfigInfo::getConfigInfoArray(QString module, QString option)
+{
+    QJsonArray retarray;
+
+    retarray = m_configjsoninfo.value(module).toObject().value(option).toArray();
+
+    return retarray;
+}
+
 void XUConfigInfo::setConfigInfo(QString module, QString option, QString optionval)
 {
     QJsonObject optionobject = m_configjsoninfo.value(module).toObject();
     optionobject[option] = optionval;
     m_configjsoninfo[module] = optionobject;
+    syncConfigInfoWriteTo();
 
+    return;
+}
+
+void XUConfigInfo::setConfigInfoArray(QString module, QString option, QJsonArray optionval)
+{
+    QJsonObject optionobject = m_configjsoninfo.value(module).toObject();
+    optionobject[option] = optionval;
+    m_configjsoninfo[module] = optionobject;
+    syncConfigInfoWriteTo();
+
+    return;
+}
+
+void XUConfigInfo::syncConfigInfoWriteTo()
+{
     QFile file(SETTING_CONFIG_FILENAME);
     if (file.exists())
     {
