@@ -126,7 +126,7 @@ void XUMusicPlayer::Scansongs()
         scanfiles = absolutedir.entryInfoList(filter, QDir::Files);
         for (int i = 0; i < scanfiles.count(); i++)
         {// 开始处理扫描到的文件
-            MediamusicInfo info;
+            MediaobjectInfo info;
             QString filename;
 
             // 以utf-8编码处理
@@ -314,4 +314,9 @@ void XUMusicPlayer::MusicplayerSliderRealsed()
 void XUMusicPlayer::on_MusicplayerreturnButton_clicked()
 {
     emit MusicplayerBacktoPrevious();
+}
+
+void XUMusicPlayer::on_MusicplayerPlaymodeButton_clicked()
+{
+
 }

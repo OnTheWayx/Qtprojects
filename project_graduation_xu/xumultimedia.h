@@ -37,6 +37,8 @@ signals:
 
     void MultimediaBackToPrevious();
 
+    void ChangeToVideoplayer();
+
 private:
     void MultimediaInit();
 
@@ -46,9 +48,6 @@ private:
 
     // 父页面指针
     QWidget *m_parent;
-
-    // 音乐播放器
-    XUMusicPlayer *m_musicplayer;
 };
 
 #endif // XUMULTIMEDIA_H

@@ -2,24 +2,32 @@
 
 #include <unistd.h>
 #include <time.h>
+#include <sys/time.h>
 #include <string.h>
 #include <string>
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
-
+#include <QVariant>
+#include <QDebug>
 
 XUUpdateinfo::XUUpdateinfo() : m_getweathercount(0)
 {
     m_sharememptr = XUSharemem::getService(&m_sharememnode);
+    m_settinginfoptr = XUSettingInfo::getService();
+
     m_timer = new QTimer();
     m_weathertimer = new QTimer();
     m_weathertimer2 = new QTimer();
+    m_Updatetimetimer = new QTimer();
+    m_isUpdatetimebynet = false;
+    m_isUpdatetimebynet_updated = false;
 
     // 连接信号与槽
     connect(m_timer, SIGNAL(timeout()), this, SLOT(ontimerEvent()));
     connect(m_weathertimer, SIGNAL(timeout()), this, SLOT(OngetCityAdcode()));
     connect(m_weathertimer2, SIGNAL(timeout()), this, SLOT(OngetWeather()));
+    connect(m_Updatetimetimer, SIGNAL(timeout()), this, SLOT(OnsetDatetimeByNet()));
 
     m_sharememptr->clearWeather(&m_sharememnode);
 }
@@ -32,10 +40,32 @@ XUUpdateinfo::~XUUpdateinfo()
         delete m_timer;
         m_timer = nullptr;
     }
+    if (m_weathertimer != nullptr)
+    {
+        m_weathertimer->stop();
+        delete m_weathertimer;
+        m_weathertimer = nullptr;
+    }
+    if (m_weathertimer2 != nullptr)
+    {
+        m_weathertimer2->stop();
+        delete m_weathertimer2;
+        m_weathertimer2 = nullptr;
+    }
+    if (m_Updatetimetimer != nullptr)
+    {
+        m_Updatetimetimer->stop();
+        delete m_Updatetimetimer;
+        m_Updatetimetimer = nullptr;
+    }
 }
 
 void XUUpdateinfo::start(unsigned long msec)
 {
+    // 读取时间的设置内容
+    QVariant isupdatetimebynet_variant = m_settinginfoptr->getSettingInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET);
+    m_isUpdatetimebynet = isupdatetimebynet_variant.toBool();
+
     ontimerEvent();
     m_timer->start(msec);
 
@@ -44,6 +74,11 @@ void XUUpdateinfo::start(unsigned long msec)
 
 void XUUpdateinfo::ontimerEvent()
 {
+    if (m_isUpdatetimebynet)
+    {
+        setDatetimeByNet();
+    }
+
     // 更新时间
     setDatetime();
 
@@ -58,6 +93,8 @@ void XUUpdateinfo::ontimerEvent()
         getCityAdcode();
         m_getweathercount = 3;
     }
+
+    return;
 }
 
 void XUUpdateinfo::setDatetime()
@@ -74,6 +111,25 @@ void XUUpdateinfo::setDatetime()
     retval.second = tm_t->tm_sec;
 
     m_sharememptr->setDatetime(&m_sharememnode, retval);
+
+    return;
+}
+
+void XUUpdateinfo::setDatetimeByNet()
+{
+    if (!m_isUpdatetimebynet_updated)
+    {
+        // 发送Get请求
+        char url_get[500] = {0};
+        char send_get[1000] = {0};
+
+        snprintf(url_get, sizeof(url_get), "http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp");
+        snprintf(send_get, sizeof(send_get), "curl -o %s %s", FILE_SETTIME_NET_NAME, url_get);
+        system(send_get);
+        m_Updatetimetimer->start(1000 * 3);
+    }
+
+    return;
 }
 
 void XUUpdateinfo::getCityAdcode()
@@ -82,10 +138,12 @@ void XUUpdateinfo::getCityAdcode()
     char url_get[500] = {0};
     char send_get[1000] = {0};
 
-    snprintf(url_get, sizeof(url_get), "https://restapi.amap.com/v3/ip?key=%s", "c9635b709c42f9fee742df85777f51af");
+    snprintf(url_get, sizeof(url_get), "http://restapi.amap.com/v3/ip?key=%s", "c9635b709c42f9fee742df85777f51af");
     snprintf(send_get, sizeof(send_get), "curl -o %s %s", FILE_WEATHER_CITYADCODE_NAME, url_get);
     system(send_get);
     m_weathertimer->start(1000 * 3);
+
+    return;
 }
 
 void XUUpdateinfo::getWeather(int adcode)
@@ -93,11 +151,13 @@ void XUUpdateinfo::getWeather(int adcode)
     // 发送Get请求
     char url_get[500] = {0};
     char send_get[1000] = {0};
-    snprintf(url_get, sizeof(url_get), "https://restapi.amap.com/v3/weather/weatherInfo?key=%s\\&city=%d\\&extensions=%s", \
+    snprintf(url_get, sizeof(url_get), "http://restapi.amap.com/v3/weather/weatherInfo?key=%s\\&city=%d\\&extensions=%s", \
              "c9635b709c42f9fee742df85777f51af", adcode, "base");
     snprintf(send_get, sizeof(send_get), "curl -o %s %s", FILE_WEATHER_WEATHER_NAME, url_get);
     system(send_get);
     m_weathertimer2->start(1000 * 3);
+
+    return;
 }
 
 void XUUpdateinfo::clearWeatherfile()
@@ -106,6 +166,18 @@ void XUUpdateinfo::clearWeatherfile()
 
     snprintf(command, sizeof(command), "rm %s %s", FILE_WEATHER_CITYADCODE_NAME, FILE_WEATHER_WEATHER_NAME);
     system(command);
+
+    return;
+}
+
+void XUUpdateinfo::clearGettimefile()
+{
+    char command[1000] = {0};
+
+    snprintf(command, sizeof(command), "rm %s", FILE_SETTIME_NET_NAME);
+    system(command);
+
+    return;
 }
 
 void XUUpdateinfo::OngetCityAdcode()
@@ -121,10 +193,13 @@ void XUUpdateinfo::OngetCityAdcode()
     {
         m_filecityAdcode.open(QIODevice::ReadWrite);
         QJsonObject data = QJsonDocument::fromJson(m_filecityAdcode.readAll()).object();
+        m_filecityAdcode.close();
 
         int adcode = data.value("adcode").toString().toInt();
         getWeather(adcode);
     }
+
+    return;
 }
 
 void XUUpdateinfo::OngetWeather()
@@ -143,6 +218,7 @@ void XUUpdateinfo::OngetWeather()
         QJsonObject data_weather = data.value("lives").toArray().at(0).toObject();
         WeatherInfo weather;
 
+        m_fileweather.close();
         memset(&weather, 0, sizeof(weather));
         // 解析数据
         weather.adcode = data_weather.value("adcode").toString().toInt();
@@ -170,5 +246,37 @@ void XUUpdateinfo::OngetWeather()
         {// 失败
             m_sharememptr->setWeatherError(&m_sharememnode);
         }
+    }
+}
+
+void XUUpdateinfo::OnsetDatetimeByNet()
+{
+    m_Updatetimetimer->stop();
+    m_filegettime.setFileName(FILE_SETTIME_NET_NAME);
+
+    if (!m_filegettime.exists())
+    {// 不作任何处理
+
+    }
+    else
+    {
+        m_isUpdatetimebynet_updated = true;
+        m_filegettime.open(QIODevice::ReadOnly);
+        QJsonObject data = QJsonDocument::fromJson(m_filegettime.readAll()).object();
+        m_filegettime.close();
+        // 解析数据
+        QString timedata_qstring = data.value("data").toObject().value("t").toString();
+        time_t timedata;
+        struct timeval timedata_val;
+
+        // 去除后三位毫秒数
+        timedata = timedata_qstring.remove(timedata_qstring.length() - 3, 3).toLong() + SETTING_TIME_UPDATE_PRESET;
+        timedata_val.tv_sec = timedata;
+        timedata_val.tv_usec = 0;
+        // 更新系统时间
+        settimeofday(&timedata_val, NULL);
+
+        // 删除临时文件
+        clearGettimefile();
     }
 }

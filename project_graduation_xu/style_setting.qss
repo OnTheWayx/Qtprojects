@@ -1,0 +1,25 @@
+QWidget#XUSetting {
+    border-image: url(:/image/home/homebackground01.png);
+}
+
+QLabel {
+    color: #FFFFFF;
+    background-color: #343645;
+    border-radius: 8px;
+}
+
+QPushButton {
+    outline: none;
+}
+
+QPushButton#SettingTimebynetButton {
+    border-image: url(:/image/setting/settinggeneraltimeicon01.png);
+}
+
+QPushButton#SettingTimebynetButton:checked {
+    border-image: url(:/image/setting/settinggeneraltimeicon02.png);
+}
+
+QPushButton#SettingreturnButton {
+    border-image: url(:/image/home/backtopreviousicon01.png);
+}

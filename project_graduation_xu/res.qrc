@@ -4,10 +4,7 @@
         <file>image/home/homemediaicon01.png</file>
         <file>image/display/1.jpg</file>
         <file>image/home/homebackground01.png</file>
-        <file>image/home/homealarmicon01.png</file>
         <file>image/home/homesettingicon01.png</file>
-        <file>image/home/homeweathericon01.png</file>
-        <file>image/home/homeradioicon01.png</file>
         <file>image/multimedia/multimediamusicicon01.png</file>
         <file>image/multimedia/multimediavideoicon01.png</file>
         <file>image/musicplayer/btn_favorite_no.png</file>
@@ -35,5 +32,29 @@
         <file>image/musicplayer/btn_scan1.png</file>
         <file>image/musicplayer/btn_scan2.png</file>
         <file>image/home/backtopreviousicon01.png</file>
+        <file>style_videoplayer.qss</file>
+        <file>image/videoplayer/add_page.png</file>
+        <file>image/videoplayer/bg.png</file>
+        <file>image/videoplayer/btn_fullscreen1.png</file>
+        <file>image/videoplayer/btn_fullscreen2.png</file>
+        <file>image/videoplayer/btn_next1.png</file>
+        <file>image/videoplayer/btn_next2.png</file>
+        <file>image/videoplayer/btn_pause1.png</file>
+        <file>image/videoplayer/btn_pause2.png</file>
+        <file>image/videoplayer/btn_play1.png</file>
+        <file>image/videoplayer/btn_play2.png</file>
+        <file>image/videoplayer/btn_screen1.png</file>
+        <file>image/videoplayer/btn_screen2.png</file>
+        <file>image/videoplayer/btn_volumedown1.png</file>
+        <file>image/videoplayer/btn_volumedown2.png</file>
+        <file>image/videoplayer/btn_volumeup1.png</file>
+        <file>image/videoplayer/btn_volumeup2.png</file>
+        <file>image/videoplayer/handle.png</file>
+        <file>image/videoplayer/mask.png</file>
+        <file>image/home/homealarmicon01.png</file>
+        <file>image/home/homeweathericon01.png</file>
+        <file>style_setting.qss</file>
+        <file>image/setting/settinggeneraltimeicon01.png</file>
+        <file>image/setting/settinggeneraltimeicon02.png</file>
     </qresource>
 </RCC>

@@ -49,10 +49,13 @@ private slots:
 
     void on_HomeMediaButton_clicked();
 
+    void on_HomeSettingButton_clicked();
+
 signals:
     // 点击事件转发信号
     void ChangeToHomemedia();
 
+    void ChangeToSetting();
 
 private:
     Ui::Widget *ui;

@@ -62,6 +62,8 @@ private slots:
 
     void on_MusicplayerreturnButton_clicked();
 
+    void on_MusicplayerPlaymodeButton_clicked();
+
 signals:
     void MusicplayerBacktoPrevious();
 
@@ -75,7 +77,7 @@ private:
     QMediaPlaylist *m_mediaplaylist;
 
     // 保存歌曲信息
-    QVector<MediamusicInfo> m_mediamusicinfos;
+    QVector<MediaobjectInfo> m_mediamusicinfos;
 };
 
 #endif // XUMUSICPLAYER_H

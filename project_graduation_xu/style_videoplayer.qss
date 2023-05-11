@@ -1,0 +1,136 @@
+QWidget#XUVideoPlayer {
+    border-image:url(:/image/videoplayer/bg.png);
+}
+
+QPushButton {
+    outline: none;
+}
+
+QListWidget {
+    outline: none;
+}
+
+QLabel {
+    border-image:none;
+    color: #FFFFFF;
+}
+
+QWidget#VideoplayerbaseWidget {
+    border-image:none;
+    background:transparent;
+}
+
+QListWidget#VideoplayerlistWidget {
+    color:white;
+    font-size: 15px;
+    border:none;
+    background: "#20ffffff";
+    border-image:none;
+}
+
+QListWidget#VideoplayerlistWidget:item:active {
+    background: transparent;
+}
+
+QListWidget#VideoplayerlistWidget:item {
+    background: transparent;
+    height:60;
+}
+
+QListWidget#VideoplayerlistWidget:item:selected {
+    color:#5edcf3;
+    background: transparent;
+}
+
+QListWidget#VideoplayerlistWidget:item:hover {
+    background: transparent;
+    color:#5edcf3;
+    border:none;
+}
+
+QPushButton#VideoplayerreturnButton {
+    border-image:url(:/image/home/backtopreviousicon01.png);
+}
+
+QPushButton#VideoplayerplayButton {
+    border-image:url(:/image/videoplayer/btn_play1.png);
+}
+
+QPushButton#VideoplayerplayButton:hover {
+    border-image:url(:/image/videoplayer/btn_play2.png);
+}
+
+QPushButton#VideoplayerplayButton:checked {
+    border-image:url(:/image/videoplayer/btn_pause1.png);
+}
+
+QPushButton#VideoplayerplayButton:checked:hover {
+    border-image:url(:/image/videoplayer/btn_pause2.png);
+}
+
+QPushButton#VideoplayernextButton {
+    border-image:url(:/image/videoplayer/btn_next1.png);
+}
+
+QPushButton#VideoplayernextButton:hover {
+    border-image:url(:/image/videoplayer/btn_next2.png);
+}
+
+QPushButton#VideoplayerVolumedownButton {
+    border-image:url(:/image/videoplayer/btn_volumedown1.png);
+}
+
+QPushButton#VideoplayerVolumedownButton:hover {
+    border-image:url(:/image/videoplayer/btn_volumedown2.png);
+}
+
+QPushButton#VideoplayerVolumeupButton {
+    border-image:url(:/image/videoplayer/btn_volumeup1.png);
+}
+
+QPushButton#VideoplayerVolumeupButton:hover {
+    border-image:url(:/image/videoplayer/btn_volumeup2.png);
+}
+
+QSlider#VideoplayerplaySlider:handle:horizontal {
+    border-image:url(:/image/videoplayer/handle.png);
+}
+
+QSlider#VideoplayerplaySlider {
+    border-image:none;
+}
+
+QSlider#VideoplayerplaySlider:add-page:horizontal {
+    border-image:url(:/images/add_page.png);
+}
+
+QSlider#VideoplayervolumeSlider {
+    border-image:none;
+}
+QSlider#VideoplayervolumeSlider:handle:horizontal {
+    border-image:url(:/image/videoplayer/handle.png);
+}
+
+QSlider#VideoplayervolumeSlider:handle:horizontal {
+    background:transparent;
+}
+
+QSlider#VideoplayervolumeSlider:add-page:horizontal {
+    border-image:url(:/image/videoplayer/add_page.png);
+}
+
+QPushButton#VideoplayerFullscreenButton {
+    border-image:url(:/image/videoplayer/btn_fullscreen1.png);
+}
+
+QPushButton#VideoplayerFullscreenButton:hover {
+    border-image:url(:/image/videoplayer/btn_fullscreen2.png);
+}
+
+QPushButton#VideoplayerFullscreenButton:checked {
+    border-image:url(:/image/videoplayer/btn_screen1.png);
+}
+
+QPushButton#VideoplayerFullscreenButton:checked:hover {
+    border-image:url(:/image/videoplayer/btn_screen2.png);
+}

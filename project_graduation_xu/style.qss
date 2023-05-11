@@ -70,22 +70,6 @@ QPushButton#HomeAlarmButton:pressed {
         border: 2px solid #5666df
 }
 
-QPushButton#HomeRadioButton {
-    border-radius: 8px;
-    background-image: url(:/image/home/homeradioicon01.png);
-    background-repeat: no-repeat;
-
-    text-align: left bottom;
-    padding-bottom: 8px;
-    padding-left: 8px;
-    font-size: 15px;
-    color: #FFFFFF;
-}
-
-QPushButton#HomeRadioButton:pressed {
-    border: 2px solid #5666df
-}
-
 QPushButton#HomeImagesButton {
     border-radius: 8px;
     border: none;

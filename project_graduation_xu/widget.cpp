@@ -127,3 +127,8 @@ void Widget::on_HomeMediaButton_clicked()
 {
     emit ChangeToHomemedia();
 }
+
+void Widget::on_HomeSettingButton_clicked()
+{
+    emit ChangeToSetting();
+}
