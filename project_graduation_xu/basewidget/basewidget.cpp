@@ -120,6 +120,8 @@ void BaseWidget::ChangeToAlarmclockSlot()
         m_alarmclock = new XUAlarmClock(this);
         ui->BasestackedWidget->addWidget(m_alarmclock);
         connect(m_alarmclock, SIGNAL(AlarmclockBackToPrevious()), this, SLOT(AlarmclockBackToPreviousSlot()));
+        connect(m_alarmclock, SIGNAL(AlarmclockInfoUpdate()), m_widget, SLOT(MainAlarmclockLoad()));
+        connect(m_widget, SIGNAL(MainAlarmclockRingToReload()), m_alarmclock, SLOT(AlarmclockListvalueLoad()));
     }
     ui->BasestackedWidget->setCurrentWidget(m_alarmclock);
 }
