@@ -20,6 +20,9 @@ public:
 signals:
     void AlarmclockBackToPrevious();
 
+    // 闹钟信息变更信号
+    void AlarmclockInfoUpdate();
+
 private slots:
     void on_AlarmclockreturnButton_clicked();
 
@@ -36,15 +39,17 @@ private slots:
     // 直接删除选中的listitem
     void on_AlarmclockDeleteButton_clicked();
 
+    // 载入存储的闹钟
+    void AlarmclockListvalueLoad();
+
 private:
     void paintEvent(QPaintEvent *event);
 
+    // 加载页面qss
     void AlarmclockPageLoad();
 
+    // 页面控件初始化
     void AlarmclockInit();
-
-    // 载入存储的闹钟
-    void AlarmclockListvalueLoad();
 
     // 向listWidget中添加项
     void AlarmclockListwidgetItemAdd(int hour, int minute);

@@ -91,7 +91,7 @@ void XUUpdateinfo::ontimerEvent()
     {
         // 更新天气
         getCityAdcode();
-        m_getweathercount = 3;
+        m_getweathercount = 6;
     }
 
     return;

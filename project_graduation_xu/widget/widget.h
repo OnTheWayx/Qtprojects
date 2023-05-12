@@ -8,13 +8,18 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QTimer>
-#include <QDebug>
 #include <QString>
 #include <QStackedWidget>
+#include <QMediaPlayer>
+#include <QVector>
+#include <QPair>
+#include <QDebug>
+#include <mutex>
 
 #include "xusharemem/xusharemem.h"
 #include "public/errornum.h"
 #include "public/structinfo.h"
+#include "xuconfiginfo/xuconfiginfo.h"
 
 // ui
 #include "xumultimedia/xumultimedia.h"
@@ -43,9 +48,15 @@ private:
     // 加载天气模块
     void MainWeatherload();
 
+    // 闹钟响铃函数
+    void MainAlarmclockIsRing();
+
 private slots:
     // 计时器事件
     void MainTimerEvent();
+
+    // 加载闹钟信息
+    void MainAlarmclockLoad();
 
     void on_HomeMediaButton_clicked();
 
@@ -61,6 +72,8 @@ signals:
 
     void ChangeToAlarmclock();
 
+    void MainAlarmclockRingToReload();
+
 private:
     Ui::Widget *ui;
 
@@ -73,6 +86,13 @@ private:
     QTimer *m_timer;
     // 获取天气的周期
     int m_getweathercount;
+
+    // 闹钟信息
+    XUConfigInfo *m_configinfoptr;
+
+    QVector<QPair<int, int>> m_alarmclockinfo;
+    std::mutex m_alarmclockmutex;
+    QMediaPlayer *m_clockplayer;
 };
 
 #endif // WIDGET_H

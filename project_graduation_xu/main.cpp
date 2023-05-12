@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
         QCoreApplication a(argc, argv);
         // 定时更新信息进程
         XUUpdateinfo updateinfo;
-        updateinfo.start(60 * 1000);
+        updateinfo.start(30 * 1000);
         return a.exec();
     }
     else

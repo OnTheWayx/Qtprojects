@@ -55,9 +55,10 @@ void XUConfigInfo::ConfigInfoLoad()
 QString XUConfigInfo::getConfigInfo(QString module, QString option)
 {
     QString retval;
-
-    retval = m_configjsoninfo.value(module).toObject().value(option).toString();
-
+    {
+        std::unique_lock<std::mutex> loc(m_mutex);
+        retval = m_configjsoninfo.value(module).toObject().value(option).toString();
+    }
     return retval;
 }
 
@@ -65,14 +66,19 @@ QJsonArray XUConfigInfo::getConfigInfoArray(QString module, QString option)
 {
     QJsonArray retarray;
 
-    retarray = m_configjsoninfo.value(module).toObject().value(option).toArray();
+    {
+        std::unique_lock<std::mutex> loc(m_mutex);
+        retarray = m_configjsoninfo.value(module).toObject().value(option).toArray();
+    }
 
     return retarray;
 }
 
 void XUConfigInfo::setConfigInfo(QString module, QString option, QString optionval)
 {
+    std::unique_lock<std::mutex> loc(m_mutex);
     QJsonObject optionobject = m_configjsoninfo.value(module).toObject();
+
     optionobject[option] = optionval;
     m_configjsoninfo[module] = optionobject;
     syncConfigInfoWriteTo();
@@ -82,7 +88,9 @@ void XUConfigInfo::setConfigInfo(QString module, QString option, QString optionv
 
 void XUConfigInfo::setConfigInfoArray(QString module, QString option, QJsonArray optionval)
 {
+    std::unique_lock<std::mutex> loc(m_mutex);
     QJsonObject optionobject = m_configjsoninfo.value(module).toObject();
+
     optionobject[option] = optionval;
     m_configjsoninfo[module] = optionobject;
     syncConfigInfoWriteTo();

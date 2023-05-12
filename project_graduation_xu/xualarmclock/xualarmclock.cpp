@@ -71,8 +71,21 @@ void XUAlarmClock::AlarmclockListvalueLoad()
 {
     QJsonArray alarmarray;
     QString hour, minute;
+    QListWidgetItem *item;
+    int count;
 
     alarmarray = m_configinfoptr->getConfigInfoArray(ALARM_CLOCK, ALARM_CLOCK_TIME);
+    count = ui->AlarmclockalarmlistWidget->count();
+    // 先清空listwidget
+    for (int i = 0; i < count; i++)
+    {
+        item = ui->AlarmclockalarmlistWidget->item(0);
+        if (item != nullptr)
+        {
+            ui->AlarmclockalarmlistWidget->removeItemWidget(item);
+            delete item;
+        }
+    }
     for (int i = 0; i < alarmarray.count(); i++)
     {
         QString value = alarmarray.at(i).toString();
@@ -129,6 +142,7 @@ void XUAlarmClock::on_AlarmclockConfirmButton_clicked()
     m_configinfoptr->setConfigInfoArray(ALARM_CLOCK, ALARM_CLOCK_TIME, alarmarray);
     AlarmclockListwidgetItemAdd(hour, minute);
 
+    emit AlarmclockInfoUpdate();
     // 清空内容
     ui->AlarmclocktimeEdit->setTime(QTime(0, 0));
 }
@@ -182,4 +196,5 @@ void XUAlarmClock::on_AlarmclockDeleteButton_clicked()
     // 先移除，再删除
     ui->AlarmclockalarmlistWidget->removeItemWidget(item);
     delete item;
+    emit AlarmclockInfoUpdate();
 }

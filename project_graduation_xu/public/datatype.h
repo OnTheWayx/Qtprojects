@@ -28,8 +28,8 @@ using errortype = int;
 
 
 // 设置模块
-#define SETTING_CONFIG_FILENAME "/opt/setting.conf"
-//#define SETTING_CONFIG_FILENAME "/home/xu/setting.conf"
+#define SETTING_CONFIG_FILENAME "/opt/config/setting.conf"
+//#define SETTING_CONFIG_FILENAME "/home/xu/config/setting.conf"
 
 // general模块
 #define SETTING_GENERAL "setting_general"
@@ -45,5 +45,10 @@ using errortype = int;
 
 // 闹钟
 #define ALARM_CLOCK_TIME "alarm_clock_time"
+
+#define ALARM_CLOCK_RING_VOLUEM_DEFAULT 80
+// 闹钟铃声
+//#define ALARM_CLOCK_RING_NAME1 "/home/xu/rings/clock01.mp3"
+#define ALARM_CLOCK_RING_NAME1 "/opt/rings/clock01.mp3"
 
 #endif // DATATYPE_H

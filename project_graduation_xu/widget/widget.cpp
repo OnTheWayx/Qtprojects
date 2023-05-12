@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <QJsonArray>
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -14,14 +15,22 @@ Widget::Widget(QWidget *parent) :
 
     m_sharememptr = XUSharemem::getService(&m_sharememnode);
 
+    m_configinfoptr = XUConfigInfo::getService();
+
     // 这里置1是因为先让更新信息进程去1获取天气
     m_getweathercount = 1;
     m_timer = new QTimer(this);
+
+    m_clockplayer = nullptr;
+    // 清空信息
+    m_alarmclockinfo.clear();
 
     // 初始化界面布局
     MainLayoutInit();
     // 加载主界面元素
     MainTimerEvent();
+    // 加载闹钟信息
+    MainAlarmclockLoad();
 
     // 连接信号与槽
     connect(m_timer, SIGNAL(timeout()), this, SLOT(MainTimerEvent()));
@@ -36,6 +45,12 @@ Widget::~Widget()
         m_timer->stop();
         delete m_timer;
         m_timer = nullptr;
+    }
+    if (m_clockplayer != nullptr)
+    {
+        m_clockplayer->stop();
+        delete m_clockplayer;
+        m_clockplayer = nullptr;
     }
 
     delete ui;
@@ -79,7 +94,10 @@ void Widget::MainTimerEvent()
 {
     // 更新时间信息
     MainDatetimeload();
+    // 更新天气信息
     MainWeatherload();
+    // 闹钟是否响铃
+    MainAlarmclockIsRing();
 }
 
 void Widget::MainDatetimeload()
@@ -127,6 +145,89 @@ void Widget::MainWeatherload()
         ui->HomeWthPlaceLabel->setText(city);
         ui->HomeWthInfoLabel->setText(wea);
         ui->HomeTemInfoLabel->setText(tem);
+    }
+}
+
+void Widget::MainAlarmclockLoad()
+{
+    QJsonArray arrayclock = m_configinfoptr->getConfigInfoArray(ALARM_CLOCK, ALARM_CLOCK_TIME);
+
+    {//
+        std::unique_lock<std::mutex> loc(m_alarmclockmutex);
+        int hour, minute;
+
+        // 先清空
+        m_alarmclockinfo.clear();
+        for (int i = 0; i < arrayclock.count(); i++)
+        {
+            QString tmpclock = arrayclock.at(i).toString();
+
+            hour = QString(tmpclock.split(":").at(0)).toInt();
+            minute = QString(tmpclock.split(":").at(1)).toInt();
+            m_alarmclockinfo.push_back(QPair<int, int>(hour, minute));
+        }
+    }
+}
+
+void Widget::MainAlarmclockIsRing()
+{
+    int hour, minute, tmphour, tmpminute;
+    int ringflag = 0;
+    {// 查找是否有相应闹钟
+        QString displaytext = ui->HomeTimeDisplayLabel->text();
+        std::unique_lock<std::mutex> loc(m_alarmclockmutex);
+
+        hour = QString(displaytext.split(":").at(0)).toInt();
+        minute = QString(displaytext.split(":").at(1)).toInt();
+        for (int i = 0; i < m_alarmclockinfo.count(); i++)
+        {
+            if (hour == m_alarmclockinfo.at(i).first && minute == m_alarmclockinfo.at(i).second)
+            {
+                ringflag = i;
+                break;
+            }
+        }
+    }
+    if (ringflag)
+    {
+        {
+            // 闹钟信息移除
+            std::unique_lock<std::mutex> loc(m_alarmclockmutex);
+            m_alarmclockinfo.removeAt(ringflag);
+        }
+        // config info更新
+        QJsonArray arrayclock = m_configinfoptr->getConfigInfoArray(ALARM_CLOCK, ALARM_CLOCK_TIME);
+        for (int i = 0; i < arrayclock.count(); i++)
+        {
+            QString tmpclock = arrayclock.at(i).toString();
+
+            tmphour = QString(tmpclock.split(":").at(0)).toInt();
+            tmpminute = QString(tmpclock.split(":").at(1)).toInt();
+            if (tmphour == hour && tmpminute == minute)
+            {
+                arrayclock.removeAt(i);
+                break;
+            }
+        }
+        // 写回到config
+        m_configinfoptr->setConfigInfoArray(ALARM_CLOCK, ALARM_CLOCK_TIME, arrayclock);
+
+        // 发送信号更新alarmclock页面listwidget
+        emit MainAlarmclockRingToReload();
+
+        // 开始响铃
+        m_clockplayer = new QMediaPlayer;
+        m_clockplayer->setMedia(QUrl::fromLocalFile(ALARM_CLOCK_RING_NAME1));
+        m_clockplayer->setVolume(ALARM_CLOCK_RING_VOLUEM_DEFAULT);
+        m_clockplayer->play();
+
+        int reply = QMessageBox::question(this, tr("闹钟响铃"), tr("点击关闭闹钟"), QMessageBox::Yes, QMessageBox::Yes);
+        if (reply == QMessageBox::Yes)
+        {
+            m_clockplayer->stop();
+            delete m_clockplayer;
+            m_clockplayer = nullptr;
+        }
     }
 }
 
