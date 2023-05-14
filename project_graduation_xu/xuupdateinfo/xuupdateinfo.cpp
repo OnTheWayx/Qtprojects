@@ -141,7 +141,7 @@ void XUUpdateinfo::getCityAdcode()
     snprintf(url_get, sizeof(url_get), "http://restapi.amap.com/v3/ip?key=%s", "c9635b709c42f9fee742df85777f51af");
     snprintf(send_get, sizeof(send_get), "curl -o %s %s", FILE_WEATHER_CITYADCODE_NAME, url_get);
     system(send_get);
-    m_weathertimer->start(1000 * 3);
+    m_weathertimer->start(1000 * 2);
 
     return;
 }
@@ -155,7 +155,7 @@ void XUUpdateinfo::getWeather(int adcode)
              "c9635b709c42f9fee742df85777f51af", adcode, "base");
     snprintf(send_get, sizeof(send_get), "curl -o %s %s", FILE_WEATHER_WEATHER_NAME, url_get);
     system(send_get);
-    m_weathertimer2->start(1000 * 3);
+    m_weathertimer2->start(1000 * 2);
 
     return;
 }

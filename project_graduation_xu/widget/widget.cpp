@@ -35,7 +35,7 @@ Widget::Widget(QWidget *parent) :
     // 连接信号与槽
     connect(m_timer, SIGNAL(timeout()), this, SLOT(MainTimerEvent()));
 
-    m_timer->start(1000 * 60);
+    m_timer->start(1000 * 30);
 }
 
 Widget::~Widget()
@@ -244,4 +244,9 @@ void Widget::on_HomeSettingButton_clicked()
 void Widget::on_HomeAlarmButton_clicked()
 {
     emit ChangeToAlarmclock();
+}
+
+void Widget::on_HomeWeatherButton_clicked()
+{
+    emit ChangeToWeatherinfo();
 }

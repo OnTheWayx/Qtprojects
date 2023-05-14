@@ -1,0 +1,44 @@
+QWidget#XUWeatherInfo {
+    border-image: url(:/image/home/homebackground01.png);
+}
+
+QLabel {
+    color: #FFFFFF;
+}
+
+QLabel#WeatherplaceLabel {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+QPushButton#WeatherreturnButton {
+    border-image: url(:/image/home/backtopreviousicon01.png);
+}
+
+QLabel#WeatherDayonebackLabel {
+    background-color: #343645;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+QLabel#WeatherDaytwobackLabel {
+    background-color: #343645;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+QLabel#WeatherDaythreebackLabel {
+    background-color: #343645;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+QLabel#WeatherDayfourbackLabel {
+    background-color: #343645;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}

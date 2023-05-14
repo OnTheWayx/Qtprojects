@@ -26,7 +26,8 @@ SOURCES += \
     xusetting/xusetting.cpp \
     xuupdateinfo/xuupdateinfo.cpp \
     xusharemem/xusharemem.cpp \
-    xuvideoplayer/xuvideoplayer.cpp
+    xuvideoplayer/xuvideoplayer.cpp \
+    xuweatherinfo/xuweatherinfo.cpp
 
 HEADERS += \
     basewidget/basewidget.h \
@@ -42,7 +43,8 @@ HEADERS += \
     xusetting/xusetting.h \
     xusharemem/xusharemem.h \
     xuupdateinfo/xuupdateinfo.h \
-    xuvideoplayer/xuvideoplayer.h
+    xuvideoplayer/xuvideoplayer.h \
+    xuweatherinfo/xuweatherinfo.h
 
 FORMS += \
     basewidget/basewidget.ui \
@@ -51,7 +53,8 @@ FORMS += \
     xumultimedia/xumultimedia.ui \
     xumusicplayer/xumusicplayer.ui \
     xusetting/xusetting.ui \
-    xuvideoplayer/xuvideoplayer.ui
+    xuvideoplayer/xuvideoplayer.ui \
+    xuweatherinfo/xuweatherinfo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
