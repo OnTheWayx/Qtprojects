@@ -64,6 +64,12 @@ private slots:
 
     void on_MusicplayerPlaymodeButton_clicked();
 
+    void on_MusicplayerScanButton_clicked();
+
+    void on_MusicplayerSetvolumedownButton_clicked();
+
+    void on_MusicplayerSetvolumeupButton_clicked();
+
 signals:
     void MusicplayerBacktoPrevious();
 

@@ -53,42 +53,22 @@ QPushButton#VideoplayerreturnButton {
 }
 
 QPushButton#VideoplayerplayButton {
-    border-image:url(:/image/videoplayer/btn_play1.png);
-}
-
-QPushButton#VideoplayerplayButton:hover {
     border-image:url(:/image/videoplayer/btn_play2.png);
 }
 
 QPushButton#VideoplayerplayButton:checked {
-    border-image:url(:/image/videoplayer/btn_pause1.png);
-}
-
-QPushButton#VideoplayerplayButton:checked:hover {
     border-image:url(:/image/videoplayer/btn_pause2.png);
 }
 
 QPushButton#VideoplayernextButton {
-    border-image:url(:/image/videoplayer/btn_next1.png);
-}
-
-QPushButton#VideoplayernextButton:hover {
     border-image:url(:/image/videoplayer/btn_next2.png);
 }
 
 QPushButton#VideoplayerVolumedownButton {
-    border-image:url(:/image/videoplayer/btn_volumedown1.png);
-}
-
-QPushButton#VideoplayerVolumedownButton:hover {
     border-image:url(:/image/videoplayer/btn_volumedown2.png);
 }
 
 QPushButton#VideoplayerVolumeupButton {
-    border-image:url(:/image/videoplayer/btn_volumeup1.png);
-}
-
-QPushButton#VideoplayerVolumeupButton:hover {
     border-image:url(:/image/videoplayer/btn_volumeup2.png);
 }
 
@@ -120,17 +100,13 @@ QSlider#VideoplayervolumeSlider:add-page:horizontal {
 }
 
 QPushButton#VideoplayerFullscreenButton {
-    border-image:url(:/image/videoplayer/btn_fullscreen1.png);
-}
-
-QPushButton#VideoplayerFullscreenButton:hover {
     border-image:url(:/image/videoplayer/btn_fullscreen2.png);
 }
 
 QPushButton#VideoplayerFullscreenButton:checked {
-    border-image:url(:/image/videoplayer/btn_screen1.png);
+    border-image:url(:/image/videoplayer/btn_screen2.png);
 }
 
-QPushButton#VideoplayerFullscreenButton:checked:hover {
-    border-image:url(:/image/videoplayer/btn_screen2.png);
+QPushButton#VideoplayerScanButton {
+    border-image:url(:/image/videoplayer/btn_scan2.png);
 }

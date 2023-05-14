@@ -366,3 +366,23 @@ void XUVideoPlayer::VideoplayerPlaysliderReleased()
 {
     m_mediaplayer->setPosition(ui->VideoplayerplaySlider->value() * 1000);
 }
+
+void XUVideoPlayer::on_VideoplayerScanButton_clicked()
+{
+    int count = m_VideoplayerlistWidget->count();
+    QListWidgetItem *item;
+
+    // 先清空列表
+    for (int i = 0; i < count; i++)
+    {
+        item = m_VideoplayerlistWidget->item(0);
+        if (item != nullptr)
+        {
+            m_VideoplayerlistWidget->removeItemWidget(item);
+            delete item;
+            item = nullptr;
+        }
+    }
+
+    ScanVideos();
+}

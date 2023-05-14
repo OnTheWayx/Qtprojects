@@ -74,6 +74,8 @@ private slots:
     // 视频时长label
     void VideoplayerDurationChanged(qint64);
 
+    void on_VideoplayerScanButton_clicked();
+
 private:
     Ui::XUVideoPlayer *ui;
 

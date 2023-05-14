@@ -169,6 +169,19 @@
     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="VideoplayerScanButton">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>540</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>VideoplayerbaseWidget</zorder>
   <zorder>VideoplayerreturnButton</zorder>
   <zorder>VideoplayerplaySlider</zorder>
@@ -180,6 +193,7 @@
   <zorder>VideoplayerFullscreenButton</zorder>
   <zorder>VideoplayerplayLabel</zorder>
   <zorder>VideoplayerdurationLabel</zorder>
+  <zorder>VideoplayerScanButton</zorder>
  </widget>
  <resources/>
  <connections/>
