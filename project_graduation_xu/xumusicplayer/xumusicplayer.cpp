@@ -99,6 +99,7 @@ void XUMusicPlayer::MusicplayerPageload()
 
     // 设置按钮属性
     ui->MusicplayerplayButton->setCheckable(true);
+    ui->MusicplayerPlaymodeButton->setCheckable(true);
 }
 
 void XUMusicPlayer::MusicplayerInit()
@@ -318,5 +319,50 @@ void XUMusicPlayer::on_MusicplayerreturnButton_clicked()
 
 void XUMusicPlayer::on_MusicplayerPlaymodeButton_clicked()
 {
+    if (ui->MusicplayerPlaymodeButton->isChecked())
+    {// 随机
+        m_mediaplaylist->setPlaybackMode(QMediaPlaylist::Random);
+    }
+    else
+    {
+        m_mediaplaylist->setPlaybackMode(QMediaPlaylist::Loop);
+    }
+}
 
+void XUMusicPlayer::on_MusicplayerScanButton_clicked()
+{
+    int count = ui->MusicplayerlistWidget->count();
+    QListWidgetItem *item;
+
+    // 先清空列表
+    for (int i = 0; i < count; i++)
+    {
+        item = ui->MusicplayerlistWidget->item(0);
+        if (item != nullptr)
+        {
+            ui->MusicplayerlistWidget->removeItemWidget(item);
+            delete item;
+            item = nullptr;
+        }
+    }
+
+    Scansongs();
+}
+
+void XUMusicPlayer::on_MusicplayerSetvolumedownButton_clicked()
+{
+    int volume = m_mediaplayer->volume();
+
+    volume = (volume - MULTIMEDIA_VIDEO_VOLUME_CHANGE) > MULTIMEDIA_VIDEO_VOLUME_MINIUM ?  \
+                (volume - MULTIMEDIA_VIDEO_VOLUME_CHANGE) : MULTIMEDIA_VIDEO_VOLUME_MINIUM;
+    m_mediaplayer->setVolume(volume);
+}
+
+void XUMusicPlayer::on_MusicplayerSetvolumeupButton_clicked()
+{
+    int volume = m_mediaplayer->volume();
+
+    volume = (volume + MULTIMEDIA_VIDEO_VOLUME_CHANGE) < MULTIMEDIA_VIDEO_VOLUME_MAXIUM ? \
+                (volume + MULTIMEDIA_VIDEO_VOLUME_CHANGE) : MULTIMEDIA_VIDEO_VOLUME_MAXIUM;
+    m_mediaplayer->setVolume(volume);
 }

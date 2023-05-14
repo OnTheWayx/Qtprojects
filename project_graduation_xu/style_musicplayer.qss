@@ -75,34 +75,22 @@ QPushButton#MusicplayernextButton:hover {
 }
 
 QPushButton#MusicplayerPlaymodeButton {
-    border-image:url(:/image/musicplayer/btn_listcircle1.png);
-}
-
-QPushButton#MusicplayerPlaymodeButton:hover {
     border-image:url(:/image/musicplayer/btn_listcircle2.png);
 }
 
-QPushButton#MusicplayerPlaymodeButton {
-    border-image:url(:/image/musicplayer/btn_listcircle1.png);
+QPushButton#MusicplayerPlaymodeButton:checked {
+    border-image:url(:/image/musicplayer/btn_listrandom2.png);
 }
 
-QPushButton#MusicplayerPlaymodeButton:hover {
-    border-image:url(:/image/musicplayer/btn_listcircle2.png);
+QPushButton#MusicplayerSetvolumedownButton {
+    border-image:url(:/image/musicplayer/btn_volumedown2.png);
 }
 
-QPushButton#MusicplayerSetvolumeButton {
-    border-image:url(:/image/musicplayer/btn_volume1.png);
-}
-
-QPushButton#MusicplayerSetvolumeButton:hover {
-    border-image:url(:/image/musicplayer/btn_volume2.png);
+QPushButton#MusicplayerSetvolumeupButton {
+    border-image:url(:/image/musicplayer/btn_volumeup2.png);
 }
 
 QPushButton#MusicplayerScanButton {
-    border-image:url(:/image/musicplayer/btn_scan1.png);
-}
-
-QPushButton#MusicplayerScanButton:hover {
     border-image:url(:/image/musicplayer/btn_scan2.png);
 }
 
