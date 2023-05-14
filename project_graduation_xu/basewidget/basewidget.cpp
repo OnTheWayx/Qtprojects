@@ -15,6 +15,7 @@ BaseWidget::BaseWidget(QWidget *parent) :
     m_videoplayer = nullptr;
     m_setting = nullptr;
     m_alarmclock = nullptr;
+    m_weatherinfo = nullptr;
 
     m_widget = new Widget(this);
     ui->BasestackedWidget->addWidget(m_widget);
@@ -24,6 +25,7 @@ BaseWidget::BaseWidget(QWidget *parent) :
     connect(m_widget, SIGNAL(ChangeToHomemedia()), this, SLOT(ChangeToHomemediaSlot()));
     connect(m_widget, SIGNAL(ChangeToSetting()), this, SLOT(ChangeToSettingSlot()));
     connect(m_widget, SIGNAL(ChangeToAlarmclock()), this, SLOT(ChangeToAlarmclockSlot()));
+    connect(m_widget, SIGNAL(ChangeToWeatherinfo()), this, SLOT(ChangeToWeatherinfoSlot()));
 }
 
 BaseWidget::~BaseWidget()
@@ -63,6 +65,12 @@ BaseWidget::~BaseWidget()
         ui->BasestackedWidget->removeWidget(m_alarmclock);
         delete m_alarmclock;
         m_alarmclock = nullptr;
+    }
+    if (m_weatherinfo != nullptr)
+    {
+        ui->BasestackedWidget->removeWidget(m_weatherinfo);
+        delete m_weatherinfo;
+        m_weatherinfo = nullptr;
     }
     delete ui;
 }
@@ -126,6 +134,18 @@ void BaseWidget::ChangeToAlarmclockSlot()
     ui->BasestackedWidget->setCurrentWidget(m_alarmclock);
 }
 
+void BaseWidget::ChangeToWeatherinfoSlot()
+{
+    if (m_weatherinfo == nullptr)
+    {
+        m_weatherinfo = new XUWeatherInfo(this);
+        ui->BasestackedWidget->addWidget(m_weatherinfo);
+        connect(m_weatherinfo, SIGNAL(WeatherinfoBackToPrevious()), this, SLOT(WeatherinfoBackToPreviousSlot()));
+    }
+    ui->BasestackedWidget->setCurrentWidget(m_weatherinfo);
+    m_weatherinfo->WeatherInfoUpdate();
+}
+
 void BaseWidget::MultimediaBackToPreviousSlot()
 {
     ui->BasestackedWidget->setCurrentWidget(m_widget);
@@ -147,6 +167,11 @@ void BaseWidget::SettingBackToPreviousSlot()
 }
 
 void BaseWidget::AlarmclockBackToPreviousSlot()
+{
+    ui->BasestackedWidget->setCurrentWidget(m_widget);
+}
+
+void BaseWidget::WeatherinfoBackToPreviousSlot()
 {
     ui->BasestackedWidget->setCurrentWidget(m_widget);
 }

@@ -9,6 +9,7 @@
 #include "xuvideoplayer/xuvideoplayer.h"
 #include "xusetting/xusetting.h"
 #include "xualarmclock/xualarmclock.h"
+#include "xuweatherinfo/xuweatherinfo.h"
 
 namespace Ui {
 class BaseWidget;
@@ -33,6 +34,8 @@ private slots:
 
     void ChangeToAlarmclockSlot();
 
+    void ChangeToWeatherinfoSlot();
+
     void MultimediaBackToPreviousSlot();
 
     void MusicplayerBacktoPreviousSlot();
@@ -42,6 +45,8 @@ private slots:
     void SettingBackToPreviousSlot();
 
     void AlarmclockBackToPreviousSlot();
+
+    void WeatherinfoBackToPreviousSlot();
 
 private:
     Ui::BaseWidget *ui;
@@ -63,6 +68,9 @@ private:
 
     // 闹钟页面
     XUAlarmClock *m_alarmclock;
+
+    // 天气预报页面
+    XUWeatherInfo *m_weatherinfo;
 };
 
 #endif // BASEWIDGET_H

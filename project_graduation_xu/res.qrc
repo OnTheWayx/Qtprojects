@@ -60,5 +60,6 @@
         <file>image/alarmclock/alarmnewclockicon01.png</file>
         <file>image/multimedia/multimediavideoicon01.png</file>
         <file>image/alarmclock/alarmdeleteclockicon01.png</file>
+        <file>style_weatherinfo.qss</file>
     </qresource>
 </RCC>

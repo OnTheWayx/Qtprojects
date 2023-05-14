@@ -64,6 +64,8 @@ private slots:
 
     void on_HomeAlarmButton_clicked();
 
+    void on_HomeWeatherButton_clicked();
+
 signals:
     // 点击事件转发信号
     void ChangeToHomemedia();
@@ -71,6 +73,8 @@ signals:
     void ChangeToSetting();
 
     void ChangeToAlarmclock();
+
+    void ChangeToWeatherinfo();
 
     void MainAlarmclockRingToReload();
 
