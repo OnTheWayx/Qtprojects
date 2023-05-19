@@ -117,6 +117,4 @@ void XUSharemem::clearWeather(sharememnode *node)
     memcpy(node->m_sharememptr + PRESET_WEATHER, &weather, sizeof(WeatherInfo));
 
     return;
-
-    return;
 }
