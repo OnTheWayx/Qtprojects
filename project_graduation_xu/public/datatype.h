@@ -5,7 +5,7 @@ using datetype = unsigned int;
 using errortype = int;
 
 // PC or I.MX6ULL
-#define DESKTOP
+//#define DESKTOP
 
 // 主页天气显示模块
 #ifdef DESKTOP

@@ -94,10 +94,10 @@ void Widget::MainTimerEvent()
 {
     // 更新时间信息
     MainDatetimeload();
-    // 更新天气信息
-    MainWeatherload();
     // 闹钟是否响铃
     MainAlarmclockIsRing();
+    // 更新天气信息
+    MainWeatherload();
 }
 
 void Widget::MainDatetimeload()
@@ -171,19 +171,20 @@ void Widget::MainAlarmclockLoad()
 
 void Widget::MainAlarmclockIsRing()
 {
-    int hour, minute, tmphour, tmpminute;
-    int ringflag = 0;
+    int hour, minute, tmphour, tmpminute, ringnumber;
+    bool ringflag = false;
     {// 查找是否有相应闹钟
-        QString displaytext = ui->HomeTimeDisplayLabel->text();
+        datetime *nowtime = m_sharememptr->getDatetime(&m_sharememnode);
         std::unique_lock<std::mutex> loc(m_alarmclockmutex);
 
-        hour = QString(displaytext.split(":").at(0)).toInt();
-        minute = QString(displaytext.split(":").at(1)).toInt();
+        hour = nowtime->hour;
+        minute = nowtime->minute;
         for (int i = 0; i < m_alarmclockinfo.count(); i++)
         {
             if (hour == m_alarmclockinfo.at(i).first && minute == m_alarmclockinfo.at(i).second)
             {
-                ringflag = i;
+                ringnumber = i;
+                ringflag = true;
                 break;
             }
         }
@@ -193,7 +194,7 @@ void Widget::MainAlarmclockIsRing()
         {
             // 闹钟信息移除
             std::unique_lock<std::mutex> loc(m_alarmclockmutex);
-            m_alarmclockinfo.removeAt(ringflag);
+            m_alarmclockinfo.removeAt(ringnumber);
         }
         // config info更新
         QJsonArray arrayclock = m_configinfoptr->getConfigInfoArray(ALARM_CLOCK, ALARM_CLOCK_TIME);
