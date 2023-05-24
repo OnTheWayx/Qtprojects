@@ -65,6 +65,9 @@ void XUAlarmClock::AlarmclockInit()
 
     // 隐藏设置闹钟时间的widget，只有新建的时候显示出来
     ui->AlarmclockNewWidget->hide();
+
+    // 这是调整时分的滚动速率
+    ui->AlarmclocktimeEdit->setAccelerated(true);
 }
 
 void XUAlarmClock::AlarmclockListvalueLoad()

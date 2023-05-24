@@ -65,7 +65,6 @@ void XUUpdateinfo::start(unsigned long msec)
     // 读取时间的设置内容
     QVariant isupdatetimebynet_variant = m_settinginfoptr->getConfigInfo(SETTING_GENERAL, SETTING_TIME_ISUPDATEBYNET);
     m_isUpdatetimebynet = isupdatetimebynet_variant.toBool();
-
     ontimerEvent();
     m_timer->start(msec);
 
